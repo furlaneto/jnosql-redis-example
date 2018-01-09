@@ -1,7 +1,5 @@
 package com.example.jnosql.redis;
 
-
-import org.jnosql.diana.redis.key.Counter;
 import org.jnosql.diana.redis.key.SortedSet;
 
 import javax.enterprise.inject.se.SeContainer;
