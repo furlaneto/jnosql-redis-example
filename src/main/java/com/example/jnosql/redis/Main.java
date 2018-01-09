@@ -10,18 +10,18 @@ public class Main {
 
     public static void main (String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            User user = User.builder()
+            God user = God.builder()
                     .id(1)
-                    .username("furlaneto")
+                    .power("furlaneto")
                     .password("123")
                     .build();
 
             KeyValueTemplate keyValueTemplate = container.select(KeyValueTemplate.class).get();
 
-            User userSaved = keyValueTemplate.put(user);
+            God userSaved = keyValueTemplate.put(user);
             System.out.println(userSaved);
 
-            Optional<User> userInRedis = keyValueTemplate.get(1, User.class);
+            Optional<God> userInRedis = keyValueTemplate.get(1, God.class);
             System.out.println(userInRedis);
         }
     }

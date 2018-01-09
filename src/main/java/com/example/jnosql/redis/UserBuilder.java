@@ -1,33 +1,33 @@
 package com.example.jnosql.redis;
 
+import java.util.Collections;
+import java.util.List;
+
 public final class UserBuilder {
 
-    private Integer id;
+    private String name;
 
-    private String username;
+    private String power;
 
-    private String password;
+    private List<String> duty = Collections.emptyList();
 
-    public UserBuilder id (Integer id) {
-        this.id = id;
+    public UserBuilder id(String name) {
+        this.name = name;
         return this;
     }
 
-    public UserBuilder username (String username) {
-        this.username = username;
+    public UserBuilder power(String username) {
+        this.power = username;
         return this;
     }
 
-    public UserBuilder password (String password) {
-        this.password = password;
+    public UserBuilder duty(List<String> duty) {
+        this.duty = duty;
         return this;
     }
 
-    public User build () {
-        User user = new User();
-        user.setId(id);
-        user.setUsername(username);
-        user.setPassword(password);
-        return user;
+    public God build() {
+        God god = new God(name, power, duty);
+        return god;
     }
 }

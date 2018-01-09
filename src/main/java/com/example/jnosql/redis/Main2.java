@@ -10,17 +10,17 @@ public class Main2 {
 
     public static void main (String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            User user = User.builder()
+            God user = God.builder()
                     .id(1)
-                    .username("furlaneto")
+                    .power("furlaneto")
                     .password("123")
                     .build();
 
-            UserRepository repository = container.select(UserRepository.class, DatabaseQualifier.ofKeyValue()).get();
-            User userSaved = repository.save(user);
+            GodRepository repository = container.select(GodRepository.class, DatabaseQualifier.ofKeyValue()).get();
+            God userSaved = repository.save(user);
             System.out.println(userSaved);
 
-            Optional<User> userInRedis = repository.findById(1);
+            Optional<God> userInRedis = repository.findById(1);
             System.out.println(userInRedis);
         }
     }
