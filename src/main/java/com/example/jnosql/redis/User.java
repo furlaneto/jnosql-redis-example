@@ -1,6 +1,7 @@
 package com.example.jnosql.redis;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
@@ -47,40 +48,19 @@ public class User implements Serializable {
     }
 
     @Override
-    public boolean equals (final Object o) {
-        if (this == o)
+    public boolean equals(Object o) {
+        if (this == o) {
             return true;
-        if (o == null || getClass() != o.getClass())
+        }
+        if (!(o instanceof User)) {
             return false;
-
-        final User user = (User) o;
-
-        if (id != null ? !id.equals(user.id) : user.id != null)
-            return false;
-        if (username != null ? !username.equals(user.username) : user.username != null)
-            return false;
-        return password != null ? password.equals(user.password) : user.password == null;
+        }
+        User user = (User) o;
+        return Objects.equals(id, user.id);
     }
 
     @Override
-    public int hashCode () {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString () {
-        final StringBuilder builder = new StringBuilder()
-                .append("User [")
-                .append("id=")
-                .append(id)
-                .append(",username=\"")
-                .append(username).append("\"")
-                .append(",password=\"")
-                .append(password).append("\"")
-                .append("]");
-        return builder.toString();
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
