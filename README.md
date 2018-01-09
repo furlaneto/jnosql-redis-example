@@ -24,4 +24,8 @@ Once this is a communication layer to Redis, we're using integration test, so yo
 
 #### Demo code
 
+
+* Main sample using KeyValueTemplate
+* Main2 sample using Repository
+
  
