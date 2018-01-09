@@ -1,11 +1,11 @@
 package com.example.jnosql.redis;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
-
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
+
+import java.io.Serializable;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class God implements Serializable {
@@ -15,9 +15,9 @@ public class God implements Serializable {
 
     private String power;
 
-    private List<String> duty;
+    private Set<String> duty;
 
-    God(String id, String power, List<String> duty) {
+    God(String id, String power, Set<String> duty) {
         this.id = id;
         this.power = power;
         this.duty = duty;
@@ -34,7 +34,7 @@ public class God implements Serializable {
         return power;
     }
 
-    public List<String> getDuty() {
+    public Set<String> getDuty() {
         return duty;
     }
 
