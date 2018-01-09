@@ -1,27 +1,31 @@
 package com.example.jnosql.redis;
 
-import java.util.Optional;
-
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import org.jnosql.artemis.DatabaseQualifier;
+import javax.enterprise.util.TypeLiteral;
+import java.util.List;
 
-public class Main2 {
+public class Main3 {
 
     public static void main (String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            User user = User.builder()
-                    .id(1)
-                    .username("furlaneto")
-                    .password("123")
-                    .build();
 
-            UserRepository repository = container.select(UserRepository.class, DatabaseQualifier.ofKeyValue()).get();
-            User userSaved = repository.save(user);
-            System.out.println(userSaved);
+            List<String> gods = container.select(new TypeLiteral<List<String>>() {}).get();
+            gods.clear();
+            System.out.println("Adds new gods");
 
-            Optional<User> userInRedis = repository.findById(1);
-            System.out.println(userInRedis);
+            gods.add("Artemis");
+            gods.add("Diana");
+            gods.add("Diana");
+            gods.add("Poseidon");
+
+            gods.forEach(System.out::println);
+            System.out.println("Removing an element");
+            gods.remove("Diana");
+
+            gods.forEach(System.out::println);
+
+
         }
     }
 

@@ -35,12 +35,12 @@ public class RedisProducer {
 
     @Produces
     public List<String> getList(){
-        return managerFactory.getList("productList", String.class);
+        return managerFactory.getList("list", String.class);
     }
 
     @Produces
     public Set<String> getSet(){
-        return managerFactory.getSet("productSet", String.class);
+        return managerFactory.getSet("queue", String.class);
     }
 
     @Produces
