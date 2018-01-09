@@ -58,4 +58,14 @@ public class God implements Serializable {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("God{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", power='").append(power).append('\'');
+        sb.append(", duty=").append(duty);
+        sb.append('}');
+        return sb.toString();
+    }
 }

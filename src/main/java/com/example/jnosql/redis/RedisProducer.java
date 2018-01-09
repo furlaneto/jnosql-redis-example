@@ -17,7 +17,7 @@ import java.util.Set;
 @ApplicationScoped
 public class RedisProducer {
 
-    private static final String BUCKET = "users";
+    private static final String BUCKET = "gods";
 
     private RedisConfiguration configuration;
 
@@ -61,7 +61,7 @@ public class RedisProducer {
 
     @Produces
     public SortedSet getSortedSet() {
-        return managerFactory.getSortedSet("soccer");
+        return managerFactory.getSortedSet("good_score");
     }
 
 
