@@ -3,14 +3,14 @@ package com.example.jnosql.redis;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import javax.enterprise.util.TypeLiteral;
-import java.util.List;
+import java.util.Set;
 
-public class Main3 {
+public class Main4 {
 
     public static void main (String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            List<String> gods = container.select(new TypeLiteral<List<String>>() {}).get();
+            Set<String> gods = container.select(new TypeLiteral<Set<String>>() {}).get();
             gods.clear();
             System.out.println("Adds new gods");
 
