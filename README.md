@@ -27,5 +27,9 @@ Once this is a communication layer to Redis, we're using integration test, so yo
 
 * Main sample using KeyValueTemplate
 * Main2 sample using Repository
-
+* Main3 sample with List
+* Main4 sample with Set
+* Main5 sample with Queue
+* Main6 sample with Map
+ 
  
