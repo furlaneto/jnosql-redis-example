@@ -14,13 +14,12 @@ public class Main2 {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
             Set<String> duties = new HashSet<>();
-            duties.add("music");
-            duties.add("poetry");
-            duties.add("medicine");
+            duties.add("moon");
+            duties.add("hunt");
 
             God artemis = God.builder()
                     .id("artemis")
-                    .power("Sun")
+                    .power("archery")
                     .duty(duties)
                     .build();
 
