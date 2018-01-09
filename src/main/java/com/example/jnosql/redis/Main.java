@@ -1,28 +1,37 @@
 package com.example.jnosql.redis;
 
-import java.util.Optional;
+import org.jnosql.artemis.key.KeyValueTemplate;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import org.jnosql.artemis.key.KeyValueTemplate;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+
+import static java.util.Collections.singleton;
 
 public class Main {
 
     public static void main (String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            User user = User.builder()
-                    .id(1)
-                    .username("furlaneto")
-                    .password("123")
+            Set<String> duties = new HashSet<>();
+            duties.add("music");
+            duties.add("poetry");
+            duties.add("medicine");
+
+            God apollo = God.builder()
+                    .id("Apollo")
+                    .power("Sun")
+                    .duty(duties)
                     .build();
 
             KeyValueTemplate keyValueTemplate = container.select(KeyValueTemplate.class).get();
 
-            User userSaved = keyValueTemplate.put(user);
-            System.out.println(userSaved);
+            God godSaved = keyValueTemplate.put(apollo);
+            System.out.println(godSaved);
 
-            Optional<User> userInRedis = keyValueTemplate.get(1, User.class);
-            System.out.println(userInRedis);
+            Optional<God> godFound = keyValueTemplate.get("Apollo", God.class);
+            System.out.println(godFound);
         }
     }
 
