@@ -31,5 +31,7 @@ Once this is a communication layer to Redis, we're using integration test, so yo
 * Main4 sample with Set
 * Main5 sample with Queue
 * Main6 sample with Map
+* Main7 sample with Counter
+* Main8 sample with Map
  
  
