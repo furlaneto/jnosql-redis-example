@@ -50,8 +50,8 @@ public class God implements Serializable {
         if (!(o instanceof God)) {
             return false;
         }
-        God user = (God) o;
-        return Objects.equals(id, user.id);
+        God god = (God) o;
+        return Objects.equals(id, god.id);
     }
 
     @Override
