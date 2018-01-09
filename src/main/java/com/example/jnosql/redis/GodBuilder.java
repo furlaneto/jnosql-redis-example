@@ -4,7 +4,7 @@ import java.util.Set;
 
 import static java.util.Collections.emptySet;
 
-public final class UserBuilder {
+public final class GodBuilder {
 
     private String name;
 
@@ -12,17 +12,17 @@ public final class UserBuilder {
 
     private Set<String> duty = emptySet();
 
-    public UserBuilder id(String name) {
+    public GodBuilder id(String name) {
         this.name = name;
         return this;
     }
 
-    public UserBuilder power(String power) {
+    public GodBuilder power(String power) {
         this.power = power;
         return this;
     }
 
-    public UserBuilder duty(Set<String> duty) {
+    public GodBuilder duty(Set<String> duty) {
         this.duty = duty;
         return this;
     }

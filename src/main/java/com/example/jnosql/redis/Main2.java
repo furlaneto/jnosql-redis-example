@@ -1,6 +1,8 @@
 package com.example.jnosql.redis;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
@@ -10,18 +12,25 @@ public class Main2 {
 
     public static void main (String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            God user = God.builder()
-                    .id(1)
-                    .power("furlaneto")
-                    .password("123")
+
+            Set<String> duties = new HashSet<>();
+            duties.add("music");
+            duties.add("poetry");
+            duties.add("medicine");
+
+            God artemis = God.builder()
+                    .id("artemis")
+                    .power("Sun")
+                    .duty(duties)
                     .build();
 
-            GodRepository repository = container.select(GodRepository.class, DatabaseQualifier.ofKeyValue()).get();
-            God userSaved = repository.save(user);
-            System.out.println(userSaved);
 
-            Optional<God> userInRedis = repository.findById(1);
-            System.out.println(userInRedis);
+            GodRepository repository = container.select(GodRepository.class, DatabaseQualifier.ofKeyValue()).get();
+            God godSaved = repository.save(artemis);
+            System.out.println(godSaved);
+
+            Optional<God> godFound = repository.findById("artemis");
+            System.out.println(godFound);
         }
     }
 

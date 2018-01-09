@@ -38,8 +38,8 @@ public class God implements Serializable {
         return duty;
     }
 
-    public static UserBuilder builder () {
-        return new UserBuilder();
+    public static GodBuilder builder () {
+        return new GodBuilder();
     }
 
     @Override

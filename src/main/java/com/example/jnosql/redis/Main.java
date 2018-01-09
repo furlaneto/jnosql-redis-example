@@ -27,11 +27,11 @@ public class Main {
 
             KeyValueTemplate keyValueTemplate = container.select(KeyValueTemplate.class).get();
 
-            God userSaved = keyValueTemplate.put(apollo);
-            System.out.println(userSaved);
+            God godSaved = keyValueTemplate.put(apollo);
+            System.out.println(godSaved);
 
-            Optional<God> userInRedis = keyValueTemplate.get("Apollo", God.class);
-            System.out.println(userInRedis);
+            Optional<God> godFound = keyValueTemplate.get("Apollo", God.class);
+            System.out.println(godFound);
         }
     }
 
