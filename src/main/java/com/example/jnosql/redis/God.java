@@ -3,9 +3,13 @@ package com.example.jnosql.redis;
 import org.jnosql.artemis.Entity;
 import org.jnosql.artemis.Id;
 
+import javax.json.bind.annotation.JsonbCreator;
+import javax.json.bind.annotation.JsonbProperty;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
+
+import static java.util.Objects.requireNonNull;
 
 @Entity
 public class God implements Serializable {
@@ -17,10 +21,14 @@ public class God implements Serializable {
 
     private Set<String> duty;
 
-    God(String id, String power, Set<String> duty) {
-        this.id = id;
-        this.power = power;
-        this.duty = duty;
+    @JsonbCreator
+    public God(@JsonbProperty("id") String id,
+        @JsonbProperty("power")String power,
+        @JsonbProperty("duty")Set<String> duty) {
+
+        this.id = requireNonNull(id, "id is required");
+        this.power = requireNonNull(power, "power is required");;
+        this.duty = requireNonNull(duty, "duty is required");;
     }
 
     God() {
