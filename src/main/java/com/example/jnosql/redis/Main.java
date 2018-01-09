@@ -8,8 +8,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import static java.util.Collections.singleton;
-
 public class Main {
 
     public static void main (String[] args) {
