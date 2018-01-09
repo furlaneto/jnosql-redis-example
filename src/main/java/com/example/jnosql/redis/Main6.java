@@ -1,32 +1,21 @@
 package com.example.jnosql.redis;
 
+
+import org.jnosql.diana.redis.key.Counter;
+
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
-import javax.enterprise.util.TypeLiteral;
-import java.util.Queue;
 
-public class Main5 {
+public class Main6 {
 
     public static void main (String[] args) {
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            Queue<String> gods = container.select(new TypeLiteral<Queue<String>>() {}).get();
-            gods.clear();
-            System.out.println("Adds new gods");
+            Counter gods = container.select(Counter.class).get();
+            System.out.println("increment: " + gods.increment());
+            System.out.println("increment: " + gods.increment(2));
+            System.out.println("decrement: " + gods.decrement(2));
 
-            gods.add("Artemis");
-            gods.add("Diana");
-            gods.add("Poseidon");
-
-            gods.forEach(System.out::println);
-
-            System.out.println("Pool element: " + gods.poll());
-            System.out.println("Pool element: " + gods.poll());
-            System.out.println("Pool element: " + gods.poll());
-            System.out.println("Pool element: " + gods.poll());
-            System.out.println("Pool element: " + gods.poll());
-
-            gods.forEach(System.out::println);
 
 
         }
