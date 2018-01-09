@@ -41,7 +41,7 @@ public class RedisProducer {
 
     @Produces
     public Set<String> getSet() {
-        return managerFactory.getSet("queue", String.class);
+        return managerFactory.getSet("set", String.class);
     }
 
     @Produces
