@@ -53,7 +53,7 @@ public class RedisProducer {
     public Map<String, String> getMap() {
         return managerFactory.getMap("map", String.class, String.class);
     }
-    
+
     @Produces
     public Counter getCounter() {
         return managerFactory.getCounter("counter");
