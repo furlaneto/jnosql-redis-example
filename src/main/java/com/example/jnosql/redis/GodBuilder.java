@@ -10,7 +10,7 @@ public final class GodBuilder {
 
     private String power;
 
-    private Set<String> duty = emptySet();
+    private Set<String> duties = emptySet();
 
     public GodBuilder id(String name) {
         this.name = name;
@@ -22,13 +22,13 @@ public final class GodBuilder {
         return this;
     }
 
-    public GodBuilder duty(Set<String> duty) {
-        this.duty = duty;
+    public GodBuilder duties(Set<String> duties) {
+        this.duties = duties;
         return this;
     }
 
     public God build() {
-        God god = new God(name, power, duty);
+        God god = new God(name, power, duties);
         return god;
     }
 }

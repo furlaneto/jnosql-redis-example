@@ -19,16 +19,16 @@ public class God implements Serializable {
 
     private String power;
 
-    private Set<String> duty;
+    private Set<String> duties;
 
     @JsonbCreator
     public God(@JsonbProperty("id") String id,
         @JsonbProperty("power")String power,
-        @JsonbProperty("duty")Set<String> duty) {
+        @JsonbProperty("duties")Set<String> duties) {
 
         this.id = requireNonNull(id, "id is required");
         this.power = requireNonNull(power, "power is required");;
-        this.duty = requireNonNull(duty, "duty is required");;
+        this.duties = requireNonNull(duties, "duties is required");;
     }
 
     God() {
@@ -42,8 +42,8 @@ public class God implements Serializable {
         return power;
     }
 
-    public Set<String> getDuty() {
-        return duty;
+    public Set<String> getDuties() {
+        return duties;
     }
 
     public static GodBuilder builder () {
@@ -72,7 +72,7 @@ public class God implements Serializable {
         final StringBuilder sb = new StringBuilder("God{");
         sb.append("id='").append(id).append('\'');
         sb.append(", power='").append(power).append('\'');
-        sb.append(", duty=").append(duty);
+        sb.append(", duties=").append(duties);
         sb.append('}');
         return sb.toString();
     }

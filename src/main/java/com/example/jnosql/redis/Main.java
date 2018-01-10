@@ -20,7 +20,7 @@ public class Main {
             God apollo = God.builder()
                     .id("Apollo")
                     .power("Sun")
-                    .duty(duties)
+                    .duties(duties)
                     .build();
 
             KeyValueTemplate keyValueTemplate = container.select(KeyValueTemplate.class).get();
