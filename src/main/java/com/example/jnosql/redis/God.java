@@ -27,8 +27,8 @@ public class God implements Serializable {
         @JsonbProperty("duties")Set<String> duties) {
 
         this.id = requireNonNull(id, "id is required");
-        this.power = requireNonNull(power, "power is required");;
-        this.duties = requireNonNull(duties, "duties is required");;
+        this.power = requireNonNull(power, "power is required");
+        this.duties = requireNonNull(duties, "duties is required");
     }
 
     God() {
