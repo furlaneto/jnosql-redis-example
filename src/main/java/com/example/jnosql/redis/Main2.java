@@ -20,7 +20,7 @@ public class Main2 {
             God artemis = God.builder()
                     .id("artemis")
                     .power("archery")
-                    .duty(duties)
+                    .duties(duties)
                     .build();
 
 
