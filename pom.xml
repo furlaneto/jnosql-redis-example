@@ -15,6 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <json.b.version>1.0.1</json.b.version>
         <javax.json.version>1.1</javax.json.version>
+        <javax.json.bind>1.0</javax.json.bind>
         <jnosql.version>0.0.4-SNAPSHOT</jnosql.version>
     </properties>
 
@@ -32,7 +33,7 @@
         <dependency>
             <groupId>javax.json.bind</groupId>
             <artifactId>javax.json.bind-api</artifactId>
-            <version>1.0</version>
+            <version>${javax.json.bind}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse</groupId>
